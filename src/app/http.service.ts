@@ -6,14 +6,9 @@ import { HttpClient } from '@angular/common/http'
 })
 export class HttpService {
 
-  constructor(private _http:HttpClient) { }
+  constructor(
+    private _http:HttpClient,
+    private _serviceUrl = "http://localhost:8000/api/user/"
+    ) { }
 
-  createUser(newUser:any){
-    console.log('from server', newUser)
-    return this._http.post("/api/user/register", newUser)
-  }
-
-  userLogin(user:object){
-    return this._http.post("/login", user)
-  }
 }

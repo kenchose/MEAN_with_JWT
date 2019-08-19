@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpService } from './../../http.service';
+import { AuthService } from './../../auth.service';
 import { NgForm } from '@angular/forms'
 import { Router } from '@angular/router';
+import { format } from 'util';
 
 
 @Component({
@@ -15,7 +16,7 @@ export class RegisterComponent implements OnInit {
   oldUser:any
 
   constructor(
-    private _httpService:HttpService, 
+    private _authService:AuthService, 
     private _router:Router) { }
 
   ngOnInit() {
@@ -23,17 +24,18 @@ export class RegisterComponent implements OnInit {
     this.oldUser = {email:'', password:''}
   }
 
-  register(){
-    this._httpService.createUser(this.newUser)
+  register(form:NgForm){
+    this._authService.createUser(this.newUser)
     .subscribe(data => {
       console.log(data);
-      this._router.navigate(['/register'])
+      form.resetForm();
       // this.newUser = {name:'', email:'', password:''};
+      this._router.navigate(['/register'])
     })
   }
 
   login(){
-    this._httpService.userLogin(this.oldUser)
+    this._authService.userLogin(this.oldUser)
     .subscribe(data => console.log(data))
   }
 

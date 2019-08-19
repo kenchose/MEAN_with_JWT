@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpService } from './http.service';
+import { AuthService } from './auth.service';
 import { HttpClientModule } from '@angular/common/http'
 import { FormsModule } from '@angular/forms';
 
@@ -23,7 +24,7 @@ import { RegisterComponent } from './components/register/register.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [HttpService],
+  providers: [HttpService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
