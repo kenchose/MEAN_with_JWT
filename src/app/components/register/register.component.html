@@ -1,0 +1,61 @@
+<div class="container">
+    <mat-tab-group mat-stretch-tabs>
+        <mat-tab>
+            <ng-template mat-tab-label class="tab">
+                Register
+            </ng-template>
+            <mat-card>
+                <form (submit)='register(formData)' #formData='ngForm'>        
+                    <mat-form-field [hideRequiredMarker]="hideRequired">
+                        <input matInput placeholder="Name" [(ngModel)]='newUser.name' name='newUser.name' #name="ngModel" required>
+                    </mat-form-field>
+                    <mat-error *ngIf="name.invalid && name.touched">
+                        Name is required
+                    </mat-error>
+                    
+                    <mat-form-field [hideRequiredMarker]="hideRequired"> 
+                        <input matInput placeholder="Email" [(ngModel)]="newUser.email" name="newUser.email" placeholder="Email" #email="ngModel" required>
+                    </mat-form-field>
+                    <mat-error *ngIf="email.invalid && email.touched">
+                        Email is required
+                    </mat-error>
+                    <mat-form-field [hideRequiredMarker]="hideRequired" hintLabel="Minimum 6 characters"> 
+                        <input matInput #input maxlength="10"  type=password placeholder="Password" [(ngModel)]="newUser.password" name="newUser.password" placeholder="Password" #password="ngModel" required>
+                    </mat-form-field>
+                    <mat-error *ngIf="password.invalid && password.touched">
+                        Password is required
+                    </mat-error>
+                    <mat-card-actions>
+                        <button mat-raised-button [disabled]="formData.invalid" color="primary">Register</button>
+                        <button mat-raised-button type="reset" color="accent" (click)="resetForm(formData)">Clear</button>
+                    </mat-card-actions>
+                </form>
+            </mat-card>   
+        </mat-tab>
+        
+        <mat-tab>
+            <ng-template mat-tab-label class="tab">
+                Login
+            </ng-template>
+            <mat-card>
+                <form (submit)='login(loginFormData)' #loginFormData='ngForm'>        
+                    <mat-form-field [hideRequiredMarker]="hideRequired"> 
+                        <input matInput placeholder="Email" [(ngModel)]="oldUser.email" name="oldUser.email" placeholder="Email" #email="ngModel" required>
+                    </mat-form-field>
+                    <mat-error *ngIf="email.invalid && email.touched">
+                        Email is required
+                    </mat-error>
+                    <mat-form-field [hideRequiredMarker]="hideRequired"> 
+                        <input matInput #input maxlength="10"  type=password placeholder="Password" [(ngModel)]="oldUser.password" name="oldUser.password" placeholder="Password" #password="ngModel" required>
+                    </mat-form-field>
+                    <mat-error *ngIf="password.invalid && password.touched">
+                        Password is required
+                    </mat-error>
+                    <mat-card-actions>
+                        <button mat-raised-button color="primary">Login</button>
+                    </mat-card-actions>
+                </form>
+            </mat-card>       
+        </mat-tab>
+    </mat-tab-group>
+</div>

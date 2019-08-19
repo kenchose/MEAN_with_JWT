@@ -1,0 +1,41 @@
+form {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 70%;
+  margin: 1rem auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+mat-card {
+  margin: 3rem auto;
+  width: 80%;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+mat-card-actions {
+  text-align: right;
+}
+
+mat-card-actions button {
+  margin-left: 10px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+mat-tab-group {
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.container {
+  padding: 3rem;
+}
+/*# sourceMappingURL=register.component.css.map */

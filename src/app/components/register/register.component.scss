@@ -1,0 +1,32 @@
+form {
+    flex-direction: column;
+    width:70%;
+    margin:1rem auto;
+    display: flex;
+}
+
+mat-card {
+    margin:3rem auto;
+    width:80%;
+}
+
+mat-form-field {
+    width:100%;
+}
+
+mat-card-actions {
+    text-align: right;
+    button {
+        // justify-content: right;
+        margin-left:10px;
+        display:inline-flex;
+    }
+}
+
+mat-tab-group {
+    align-content:center;
+}
+
+.container {
+    padding: 3rem;
+}

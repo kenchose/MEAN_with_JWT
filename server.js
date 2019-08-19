@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended:true }));
 app.use('/api/user', authRouter);
 
 app.all("*", (req, res, next) => {
-    res.sendFile(path.resolve("/dist/lreg-login-jwt/index.html"));
+    res.sendFile(path.resolve("./dist/reg-login-jwt/index.html"));
 })
 
 app.listen(8000, () => console.log("Listening on port 8000"));

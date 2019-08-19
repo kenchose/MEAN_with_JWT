@@ -16,10 +16,6 @@ const UserSchema = new mongoose.Schema({
         required:[true, "Password is required"],
         min:6,
         max:255
-    },
-    date:{
-        type:Date,
-        default:Date.now
     }
 }, {timestamps:{createdAt:"created_at", updatedAt:"updated_at"}});
 

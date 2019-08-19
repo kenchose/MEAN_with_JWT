@@ -1,13 +1,12 @@
 const router = require('express').Router();
-const User = require("./../../models/User");
+const user = require("./../../controlelrs/users");
 
-router.post('/register',  (req, res) => {
-    let user = new User({
-        name:req.body.name,
-        email:req.body.email,
-        password:req.body.email
-    })
-    res.send(user)
-})
+router.post('/register', (req, res) => {
+    user.new(req, res)
+});
+
+router.post('/login', (req, res) => {
+    user.login(req, res)
+});
 
 module.exports = router;
