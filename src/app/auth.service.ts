@@ -8,15 +8,21 @@ export class AuthService {
 
   constructor(
     private _http:HttpClient,
-    private _serviceUrl = "http://localhost:8000/api/user/"
   ) { }
 
   createUser(newUser:object){
-    return this._http.post<any>(this._serviceUrl+"register", newUser)
+    return this._http.post<any>("/api/user/register", newUser)
   }
 
   userLogin(user:object){
-    return this._http.post<any>(this._serviceUrl+"login", user)
+    return this._http.post<any>("/api/user/login", user)
   }
 
+  allUsers(){
+    return this._http.get<any>("/api/user/users");
+  }
+
+  loggedIn(){
+    return !!localStorage.getItem('token');
+  }
 }

@@ -10,11 +10,18 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { RegisterComponent } from './components/register/register.component';
+import { HomeComponent } from './components/home/home.component';
+import { UsersComponent } from './components/users/users.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { AuthGuard } from './auth.guard';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegisterComponent
+    RegisterComponent,
+    HomeComponent,
+    UsersComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +31,7 @@ import { RegisterComponent } from './components/register/register.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [HttpService, AuthService],
+  providers: [HttpService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

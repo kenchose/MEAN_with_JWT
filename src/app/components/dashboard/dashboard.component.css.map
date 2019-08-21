@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,GAAG,CAAC;EACA,UAAU,EAAE,MAAM;EAClB,OAAO,EAAC,IAAI;CACf",
+    "sources": [
+        "dashboard.component.scss"
+    ],
+    "names": [],
+    "file": "dashboard.component.css"
+}

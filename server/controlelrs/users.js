@@ -26,6 +26,14 @@ module.exports = {
         });
         try {
             const user = await newUser.save();
+
+            // CREATE AND ASSIGN TOKEN
+            const token = jwt.sign({id:user._id}, process.env.TOKEN_SECRET);
+            res.header('auth-token', token).send({token})
+
+            // let payLoad = { subject: user._id}
+            // let token = jwt.sign(payLoad, process.env.TOKEN_SECRET)
+            // res.status(200).send({token});
             res.status(201).json({success: "Successfully saved new user", user:user._id});
         } catch(err) {
             res.status(400).json({error: "Error, could not save new user", err});
@@ -45,11 +53,14 @@ module.exports = {
         const validPassword = await bcrypt.compare(req.body.password, user.password);
         if(!validPassword) return res.status(400).json({error: "Error, email/password is incorrect."});
 
-        //CREATE AND ASSIGN TOKEN
+        // CREATE AND ASSIGN TOKEN
         const token = jwt.sign({id:user._id}, process.env.TOKEN_SECRET);
-        res.header('auth-token', token).send(token)
+        res.header('auth-token', token).send({token})
 
-        res.status(200).json({success: "You are now logged in"})
+        // let payLoad = { subject: user._id}
+        // let token = jwt.sign(payLoad, process.env.TOKEN_SECRET)
+
+        // res.status(200).send({token});
     },
 
     getAll: (req, res) => {

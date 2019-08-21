@@ -1,0 +1,18 @@
+.example-fill-remaining-space {
+    /* This fills the remaining space, by using flexbox. 
+       Every toolbar row uses a flexbox row layout. */
+    flex: 1 1 auto;
+  }
+
+  a {
+      color:#fff;
+      text-decoration: none;
+  }
+  
+  .action-btn {
+      padding-right: 2rem;
+  }
+
+  .home-btn {
+      padding-left: 2rem;
+  }

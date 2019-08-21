@@ -28,15 +28,18 @@ export class RegisterComponent implements OnInit {
     this._authService.createUser(this.newUser)
     .subscribe(data => {
       console.log(data);
+      localStorage.setItem('token', data.token);
+      this._router.navigate(['/dashboard'])
       form.resetForm();
-      // this.newUser = {name:'', email:'', password:''};
-      this._router.navigate(['/register'])
     })
   }
 
   login(){
     this._authService.userLogin(this.oldUser)
-    .subscribe(data => console.log(data))
+    .subscribe(data => {
+      localStorage.setItem('token', data.token);
+      this._router.navigate(['/dashboard']);
+    })
   }
 
   resetForm(form:NgForm){

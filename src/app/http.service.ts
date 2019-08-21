@@ -8,7 +8,6 @@ export class HttpService {
 
   constructor(
     private _http:HttpClient,
-    private _serviceUrl = "http://localhost:8000/api/user/"
     ) { }
 
 }
